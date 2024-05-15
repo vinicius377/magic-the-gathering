@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from 'app/components/loading/loading.component';
 import { ErrorComponent } from 'app/components/error/error.component';
 import { EmptyComponent } from 'app/components/empty/empty.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-set-list',
@@ -16,7 +17,8 @@ import { EmptyComponent } from 'app/components/empty/empty.component';
     RouterModule,
     LoadingComponent,
     ErrorComponent,
-    EmptyComponent
+    EmptyComponent,
+    DatePipe
   ],
   templateUrl: './set-list.component.html',
   styleUrl: './set-list.component.scss'
@@ -34,10 +36,7 @@ export class SetListComponent {
       }
       this.mtgService.findSets(params).subscribe({
         next: data => {
-           this.sets = data.sets.map(set => ({
-             ...set,
-             releaseDate: new Date(set.releaseDate).toLocaleDateString('pt-br')
-           }))
+           this.sets = data.sets
         },
         error: (err) => {
           this.requestError = err.error.error;
@@ -46,8 +45,10 @@ export class SetListComponent {
     })
   }
 
-  goToCards(setId:string ) {
-    this.router.navigateByUrl(`cards/${setId}`)
+  handleKeyDown(e: KeyboardEvent, setId: string){
+    if (e.key === 'Enter') {
+      this.router.navigateByUrl(`cards/${setId}`)
+    }
   }
 
 }

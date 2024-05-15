@@ -2,16 +2,26 @@
   @if (cards) {
     @if (cards.length) {
         <div class="card_grid">
-        @for (card of cards; track card.name) {
-          <div class="card_container">
-              <img [src]="card.imageUrl" alt="">
-              <header>
-                <h4>{{card.name}}</h4>
-                <span [innerHTML]="card.manaCost" class="card_manaCost"></span>
-              </header>
-              <p [innerHTML]="card.text"></p>
-          </div>
-        }
+          @for (card of cards; track card.name) {
+            <div
+               tabindex="0"
+               class="card_container"
+               [ariaLabel]="'carta numero' + $index"
+             >
+                <img
+                  [src]="card.imageUrl"
+                  [alt]="'imagem da carta' + card.name"
+                  tabindex="1"
+                >
+                <div class="card_info">
+                  <header>
+                    <h4 tabindex="0">{{card.name}}</h4>
+                    <span [innerHTML]="card.manaCost" class="card_manaCost"></span>
+                  </header>
+                  <p tabindex="0" [innerHTML]="card.text"></p>
+                </div>
+            </div>
+          }
         </div>
       } @else {
         <app-empty></app-empty>

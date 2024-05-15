@@ -14,17 +14,37 @@ section {
 .card_container {
   border: solid 1px #c4c4c4;
   background: #fff;
-  box-shadow: -1px 1px 2px rgba(0,0,0,0.5);
-  height: 28rem;
+  box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.5);
+  height: 20rem;
   display: flex;
-  flex-direction: column;
-  padding: 1rem;
+  padding: 0.5rem;
 
   img {
+    margin-top: auto;
     margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
     width: 10rem;
+  }
+
+  @media (maxwidth: 500px) {
+    img {
+      width: 8rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    img {
+      width: 7rem;
+      margin: auto;
+    }
+    flex-direction: column;
+  }
+}
+
+.card_info {
+  padding: 1rem;
+
+  p {
+    line-height: 16px;
   }
 
   h4 {
@@ -34,20 +54,13 @@ section {
 
   header {
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
   }
 
-  @media (maxwidth: 500px) {
-    img {
-      width: 8rem;
-    }
-    height: 26rem;
-  }
 }
 
 .card_manaCost {
   display: flex;
   gap: 2px;
-  height: 1.25em
-
+  height: 1.25em;
 }

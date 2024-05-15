@@ -17,7 +17,6 @@ import { Card } from 'app/types/Card';
 export class CardsComponent {
   cards!: Card[]
   error = '';
-  test = '<img src="assets/B.png" />'
 
   constructor(
     private activedRoute: ActivatedRoute,
@@ -36,13 +35,18 @@ export class CardsComponent {
   private handleGetCards(setId: string){
     this.mtgService.listCards(setId).subscribe({
       next: data => {
-       const filteredCards = data.cards.filter(x => x.types.includes("Creature"));
-       const cardsWithIcons = filteredCards.map(x => ({
-         ...x,
-         text: this.handleReplaceToIcons(x.text),
-         manaCost: this.handleReplaceToIcons(x.manaCost),
-       }))
-       this.cards = cardsWithIcons
+       const cards = data.cards.reduce((acc, card) => {
+         if (card.types.includes("Creature")) {
+            acc.push({
+              ...card,
+             text: this.handleReplaceToIcons(card.text),
+             manaCost: this.handleReplaceToIcons(card.manaCost),
+           })
+         }
+         return acc
+       }, [] as Card[])
+
+       this.cards = cards
       },
       error: (err) => {
         this.error = err.error.error

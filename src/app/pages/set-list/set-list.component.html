@@ -1,18 +1,25 @@
 <section>
   @if (sets) {
     @if (sets.length) {
-      <h1 class="title">Escolha um conjunto</h1>
-      <div class="card_grid">
-        @for (set of sets; track set.name) {
-        <div class="card_container" [routerLink]="['/cards', set.code]">
-            <h2>{{ set.name }}</h2>
-            <span>{{ set.block }}</span>
-            <div class="releaseDate">
-              <span>{{ set.releaseDate }}</span>
-            </div>
-          </div>
-        }
+    <h1 class="title" tabindex="0">Escolha um conjunto</h1>
+    <div class="card_grid">
+      @for (set of sets; track set.name) {
+      <div
+        [ariaLabel]="'conjunto da posição ' + $index"
+        class="card_container"
+        [routerLink]="['/cards', set.code]"
+        (keyup)="handleKeyDown($event, set.code)"
+      >
+        <h2 tabindex="0">{{ set.name }}</h2>
+        <span tabindex="0">{{ set.block }}</span>
+        <div class="releaseDate">
+          <span tabindex="0">
+            {{ set.releaseDate | date: "dd/MM/yyyy" }}
+          </span>
+        </div>
       </div>
+      }
+    </div>
     } @else {
       <app-empty></app-empty>
     }
@@ -20,7 +27,7 @@
     @if (requestError) {
       <app-error [error]="requestError"></app-error>
     } @else {
-      <app-loading text="Carregando a lista de conjuntos" ></app-loading>
+      <app-loading text="Carregando a lista de conjuntos"></app-loading>
     }
   }
 </section>
