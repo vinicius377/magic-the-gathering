@@ -7,7 +7,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Block</mat-label>
-      <mat-select formControlName="block">
+      <mat-select formControlName="block" id="select-block">
         @for (block of blockOptions; track block) {
         <mat-option [value]="block">{{ block }}</mat-option>
         }

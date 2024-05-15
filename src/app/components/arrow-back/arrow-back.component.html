@@ -1,5 +1,5 @@
-<header class="back_container" (click)="handleClick()">
-  <button ariaLabel="botao de voltar a pagina" (keydown)="handleKeyDown($event)">
+<header data-testid="arrow_container" class="back_container" (click)="handleClick()">
+  <button data-testid="arrow" ariaLabel="botao de voltar a pagina" (keydown)="handleKeyDown($event)">
     <mat-icon fontIcon="arrow_back_ios"></mat-icon>
   </button>
   <span>Voltar</span>

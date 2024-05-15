@@ -1,6 +1,5 @@
 export interface Set {
   name: string
-  type: string
   releaseDate: string
   block: string;
   code: string
