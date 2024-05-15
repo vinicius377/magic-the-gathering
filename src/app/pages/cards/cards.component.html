@@ -1,0 +1,26 @@
+<section>
+  @if (cards) {
+    @if (cards.length) {
+        <div class="card_grid">
+        @for (card of cards; track card.name) {
+          <div class="card_container">
+              <img [src]="card.imageUrl" alt="">
+              <header>
+                <h4>{{card.name}}</h4>
+                <span>{{card.manaCost}}</span>
+              </header>
+              <p>{{card.text}}</p>
+          </div>
+        }
+        </div>
+      } @else {
+        <div>Nenhum encontrado</div>
+      }
+  } @else {
+    @if (error) {
+      <app-error [error]="error"></app-error>
+    } @else {
+      <app-loading text="Carregando os seus boosters"></app-loading>
+    }
+  }
+</section>
