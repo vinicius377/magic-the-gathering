@@ -27,7 +27,6 @@ export class SearchComponent {
   constructor(private router: Router) { }
 
   searchParams!: FormGroup
-
   blockOptions = ['Amonkhet', 'Ixalan', 'Zendikar', 'Ravnica', 'Onslaught'];
 
   onSubmit() {

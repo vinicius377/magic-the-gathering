@@ -36,4 +36,18 @@ section {
     display: flex;
     justify-content: space-between
   }
+
+  @media (maxwidth: 500px) {
+    img {
+      width: 8rem;
+    }
+    height: 26rem;
+  }
+}
+
+.card_manaCost {
+  display: flex;
+  gap: 2px;
+  height: 1.25em
+
 }

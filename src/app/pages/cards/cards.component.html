@@ -7,14 +7,14 @@
               <img [src]="card.imageUrl" alt="">
               <header>
                 <h4>{{card.name}}</h4>
-                <span>{{card.manaCost}}</span>
+                <span [innerHTML]="card.manaCost" class="card_manaCost"></span>
               </header>
-              <p>{{card.text}}</p>
+              <p [innerHTML]="card.text"></p>
           </div>
         }
         </div>
       } @else {
-        <div>Nenhum encontrado</div>
+        <app-empty></app-empty>
       }
   } @else {
     @if (error) {

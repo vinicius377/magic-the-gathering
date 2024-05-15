@@ -18,4 +18,11 @@ export class ErrorComponent {
     this.errorMessage = formatterErrorMessage(x.error.currentValue)
   }
 
+  reloadPage() {
+    window.location.reload();
+  }
+
+  goToBack() {
+    window.history.back();
+  }
 }

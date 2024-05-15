@@ -6,6 +6,7 @@ import { MtgService } from 'app/services/mtg.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from 'app/components/loading/loading.component';
 import { ErrorComponent } from 'app/components/error/error.component';
+import { EmptyComponent } from 'app/components/empty/empty.component';
 
 @Component({
   selector: 'app-set-list',
@@ -14,7 +15,8 @@ import { ErrorComponent } from 'app/components/error/error.component';
     HttpClientModule,
     RouterModule,
     LoadingComponent,
-    ErrorComponent
+    ErrorComponent,
+    EmptyComponent
   ],
   templateUrl: './set-list.component.html',
   styleUrl: './set-list.component.scss'
@@ -26,6 +28,10 @@ export class SetListComponent {
 
   constructor(private mtgService: MtgService, private router: Router) {
     this.params.subscribe(params => {
+      if (!params.block) {
+        this.router.navigate(['/'])
+        return
+      }
       this.mtgService.findSets(params).subscribe({
         next: data => {
            this.sets = data.sets.map(set => ({

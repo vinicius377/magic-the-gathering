@@ -3,7 +3,7 @@
     <h1 class="title">Buscar por conjunto de cartas</h1>
     <mat-form-field class="example-full-width">
       <mat-label>Nome</mat-label>
-      <input formControlName="name" matInput placeholder="Khans of Tarkir" />
+      <input color="primary" formControlName="name" matInput placeholder="Ex. Khans of Tarkir" />
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Block</mat-label>
@@ -13,9 +13,6 @@
         }
       </mat-select>
     </mat-form-field>
-    @if (searchParams.getError('block')?.['required']) {
-      <span>Block is required</span>
-    }
     <button class="search_button">BUSCAR</button>
   </form>
 </section>

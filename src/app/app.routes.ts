@@ -5,11 +5,6 @@ import { CardsComponent } from './pages/cards/cards.component';
 
 export const routes: Routes = [
   {
-    path: '',
-    component: SearchComponent,
-    title: 'Buscar conjuntos de cards'
-  },
-  {
     path: 'sets',
     component: SetListComponent,
     title: 'Conjunto de cards'
@@ -21,5 +16,10 @@ export const routes: Routes = [
       const setId = activedRouter.paramMap.get('setId')
       return `Cards para ${setId}`
     }
-  }
+  },
+ {
+    path: '**',
+    component: SearchComponent,
+    title: 'Buscar conjuntos de cards'
+  },
 ];

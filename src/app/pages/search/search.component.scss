@@ -5,6 +5,10 @@ section {
   justify-content: center;
   align-items: center;
   height: 100vh;
+
+  @media (max-width: 400px) {
+    align-items: start;
+  }
 }
 
 .content {
@@ -16,6 +20,14 @@ section {
   flex-direction: column;
   gap: 0.5rem;
   background: #fff;
+  margin: 0.5rem;
+
+  @media (max-width: 400px) {
+    min-width: 100%;
+    padding: 0.5rem;
+    background: #fafafa;
+    border: none;
+  }
 }
 
 .title {
