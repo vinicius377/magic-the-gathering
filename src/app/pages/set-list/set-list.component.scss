@@ -1,0 +1,51 @@
+section {
+  width: 100%;
+  max-width: 70rem;
+  padding: 1rem;
+  margin: auto;
+}
+
+.card_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.card_container {
+  background: #fff;
+  border-radius: 4px;
+  border: solid 1px #c4c4c4;
+  padding: 0.75rem;
+  box-shadow: 0 0 2px 0 rgba(0,0,0, 0.5);
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: 400ms;
+
+  h2 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.25rem;
+  }
+
+  &:hover {
+    transform: translate(2px, -2px);
+    box-shadow: -2px 2px 2px 0 rgba(0,0,0, 0.5);
+  }
+}
+
+.releaseDate {
+  margin-top: auto;
+  margin-left: auto;
+  font-style: italic;
+  border: solid 1px #c4c4c4;
+  padding: 0.125rem 0.25rem;
+  border-radius: 4px;
+  background: #fafafa;
+}

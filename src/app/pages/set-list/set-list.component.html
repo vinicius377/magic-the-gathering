@@ -1,0 +1,26 @@
+<section>
+  @if (sets) {
+    @if (sets.length) {
+      <h1 class="title">Escolha um conjunto</h1>
+      <div class="card_grid">
+        @for (set of sets; track set.name) {
+        <div class="card_container" [routerLink]="['/cards', set.code]">
+            <h2>{{ set.name }}</h2>
+            <span>{{ set.block }}</span>
+            <div class="releaseDate">
+              <span>{{ set.releaseDate }}</span>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <div>Não encontramos nenhum</div>
+    }
+  } @else {
+    @if (requestError) {
+      <app-error [error]="requestError"></app-error>
+    } @else {
+      <app-loading text="Carregando a lista de conjuntos" ></app-loading>
+    }
+  }
+</section>
