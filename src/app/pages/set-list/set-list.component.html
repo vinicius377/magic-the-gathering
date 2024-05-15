@@ -1,25 +1,26 @@
 <section>
   @if (sets) {
     @if (sets.length) {
-    <h1 class="title" tabindex="0">Escolha um conjunto</h1>
-    <div class="card_grid">
-      @for (set of sets; track set.name) {
-      <div
-        [ariaLabel]="'conjunto da posição ' + $index"
-        class="card_container"
-        [routerLink]="['/cards', set.code]"
-        (keyup)="handleKeyDown($event, set.code)"
-      >
-        <h2 tabindex="0">{{ set.name }}</h2>
-        <span tabindex="0">{{ set.block }}</span>
-        <div class="releaseDate">
-          <span tabindex="0">
-            {{ set.releaseDate | date: "dd/MM/yyyy" }}
-          </span>
+      <app-arrow-back (onClick)="handleGoBack()"></app-arrow-back>
+      <h1 class="title" tabindex="0">Escolha um conjunto</h1>
+      <div class="card_grid">
+        @for (set of sets; track set.name) {
+        <div
+          [ariaLabel]="'conjunto da posição ' + $index"
+          class="card_container"
+          [routerLink]="['/cards', set.code]"
+          (keyup)="handleKeyDown($event, set.code)"
+        >
+          <h2 tabindex="0">{{ set.name }}</h2>
+          <span tabindex="0">{{ set.block }}</span>
+          <div class="releaseDate">
+            <span tabindex="0">
+              {{ set.releaseDate | date: "dd/MM/yyyy" }}
+            </span>
+          </div>
         </div>
+        }
       </div>
-      }
-    </div>
     } @else {
       <app-empty></app-empty>
     }

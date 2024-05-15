@@ -1,0 +1,17 @@
+.back_container {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  cursor: pointer;
+
+  button {
+    background: transparent;
+    color: #353535;
+    border: none;
+    cursor: pointer;
+  }
+
+  span {
+    font-weight: 600;
+  }
+}

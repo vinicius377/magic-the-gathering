@@ -8,6 +8,7 @@ import { LoadingComponent } from 'app/components/loading/loading.component';
 import { ErrorComponent } from 'app/components/error/error.component';
 import { EmptyComponent } from 'app/components/empty/empty.component';
 import { DatePipe } from '@angular/common';
+import { ArrowBackComponent } from 'app/components/arrow-back/arrow-back.component';
 
 @Component({
   selector: 'app-set-list',
@@ -18,6 +19,7 @@ import { DatePipe } from '@angular/common';
     LoadingComponent,
     ErrorComponent,
     EmptyComponent,
+    ArrowBackComponent,
     DatePipe
   ],
   templateUrl: './set-list.component.html',
@@ -49,6 +51,10 @@ export class SetListComponent {
     if (e.key === 'Enter') {
       this.router.navigateByUrl(`cards/${setId}`)
     }
+  }
+
+  handleGoBack() {
+    this.router.navigate(['/'])
   }
 
 }

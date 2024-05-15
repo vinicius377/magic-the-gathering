@@ -1,7 +1,8 @@
 <section>
   @if (cards) {
     @if (cards.length) {
-        <div class="card_grid">
+      <app-arrow-back (onClick)="handleGoBack()"></app-arrow-back>
+         <div class="card_grid">
           @for (card of cards; track card.name) {
             <div
                tabindex="0"
