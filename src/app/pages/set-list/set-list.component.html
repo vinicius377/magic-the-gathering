@@ -10,6 +10,7 @@
           class="card_container"
           [routerLink]="['/cards', set.code]"
           (keyup)="handleKeyDown($event, set.code)"
+          data-testid="card_container"
         >
           <h2 tabindex="0">{{ set.name }}</h2>
           <span tabindex="0">{{ set.block }}</span>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon'
 import { formatterErrorMessage } from './utils/fomatterErrorMessage';
 
@@ -9,13 +9,13 @@ import { formatterErrorMessage } from './utils/fomatterErrorMessage';
   templateUrl: './error.component.html',
   styleUrl: './error.component.scss'
 })
-export class ErrorComponent {
+export class ErrorComponent implements OnChanges {
   @Input()
   error = ''
   errorMessage = formatterErrorMessage(this.error)
 
-  ngOnChanges(x: any){
-    this.errorMessage = formatterErrorMessage(x.error.currentValue)
+  ngOnChanges(x: SimpleChanges){
+    this.errorMessage = formatterErrorMessage(x['error'].currentValue)
   }
 
   reloadPage() {

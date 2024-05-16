@@ -1,6 +1,6 @@
 <div class="error_container">
   <mat-icon aria-label="icone de erro" inline inline fontIcon="error" class="error_icon"></mat-icon>
   <span>{{errorMessage}}</span>
-  <button class="reload_button" (click)="reloadPage()">Recarregar a página</button>
-  <button class="reload_button" (click)="goToBack()">Voltar</button>
+  <button data-testid="reload_button" class="reload_button" (click)="reloadPage()">Recarregar a página</button>
+  <button data-testid="back_button"class="reload_button" (click)="goToBack()">Voltar</button>
 </div>

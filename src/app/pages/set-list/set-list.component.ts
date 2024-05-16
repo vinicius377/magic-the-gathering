@@ -33,7 +33,7 @@ export class SetListComponent {
   constructor(private mtgService: MtgService, private router: Router) {
     this.params.subscribe(params => {
       if (!params.block) {
-        this.router.navigate(['/'])
+        this.handleGoBack()
         return
       }
       this.mtgService.findSets(params).subscribe({

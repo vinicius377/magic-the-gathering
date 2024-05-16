@@ -53,7 +53,7 @@ export class CardsComponent {
         );
         const totalCards = [...cards, ...cardsData];
 
-        if (totalCards.length >= 2) {
+        if (totalCards.length >= 30) {
           this.cards = totalCards.slice(0, 30);
         } else {
           this.handleGetCards(setId, totalCards);
