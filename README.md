@@ -1,6 +1,6 @@
 ### Magic the Gathering
 
-[Você pode acessar aqui.]()
+[Você pode acessar aqui.](https://magic-the-gathering-delta.vercel.app/)
 
 Aplicação de busca e visualização das cartas do jogo **Magic the Gathering**.
 
